@@ -1,7 +1,15 @@
 // Document types
 import landingPage from './documents/landingPage'
 import blogPost from './documents/blogPost'
+import blogIndex from './documents/blogIndex'
 import author from './documents/author'
+import footer from './documents/footer'
+import pricingPage from './documents/pricingPage'
+import productPage from './documents/productPage'
+import integrationPage from './documents/integrationPage'
+import legalPage from './documents/legalPage'
+import aboutPage from './documents/aboutPage'
+import contactPage from './documents/contactPage'
 
 // Section/Slice types
 import heroSection from './sections/heroSection'
@@ -29,12 +37,22 @@ import securityBadge from './objects/securityBadge'
 import socialLink from './objects/socialLink'
 import footerColumn from './objects/footerColumn'
 import footerLink from './objects/footerLink'
+import pricingPlan from './objects/pricingPlan'
+import faq from './objects/faq'
 
 export const schemaTypes = [
   // Documents
   landingPage,
   blogPost,
+  blogIndex,
   author,
+  footer,
+  pricingPage,
+  productPage,
+  integrationPage,
+  legalPage,
+  aboutPage,
+  contactPage,
 
   // Sections
   heroSection,
@@ -62,4 +80,6 @@ export const schemaTypes = [
   socialLink,
   footerColumn,
   footerLink,
+  pricingPlan,
+  faq,
 ]
