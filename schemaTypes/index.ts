@@ -7,9 +7,11 @@ import footer from './documents/footer'
 import pricingPage from './documents/pricingPage'
 import productPage from './documents/productPage'
 import integrationPage from './documents/integrationPage'
+import categoryIndexPage from './documents/categoryIndexPage'
 import legalPage from './documents/legalPage'
 import aboutPage from './documents/aboutPage'
 import contactPage from './documents/contactPage'
+import sharedSections from './documents/sharedSections'
 
 // Section/Slice types
 import heroSection from './sections/heroSection'
@@ -50,9 +52,11 @@ export const schemaTypes = [
   pricingPage,
   productPage,
   integrationPage,
+  categoryIndexPage,
   legalPage,
   aboutPage,
   contactPage,
+  sharedSections,
 
   // Sections
   heroSection,

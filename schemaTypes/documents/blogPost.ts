@@ -6,6 +6,20 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'language',
+      title: 'Language',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'English', value: 'en'},
+          {title: 'Spanish', value: 'es'},
+          {title: 'Portuguese', value: 'pt'},
+          {title: 'Turkish', value: 'tr'},
+        ],
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
@@ -84,10 +98,16 @@ export default defineType({
       title: 'title',
       author: 'author.name',
       media: 'featuredImage',
+      language: 'language',
     },
     prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
+      const {author, language, title, media} = selection
+      const langLabels: Record<string, string> = {en: 'EN', es: 'ES', pt: 'PT', tr: 'TR'}
+      return {
+        title,
+        subtitle: `${author ? `by ${author}` : ''} · ${langLabels[language] || language}`,
+        media,
+      }
     },
   },
 })

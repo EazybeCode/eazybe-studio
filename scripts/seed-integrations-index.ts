@@ -1,0 +1,293 @@
+import {createClient} from '@sanity/client'
+
+const client = createClient({
+  projectId: '5awzi0t4',
+  dataset: 'production',
+  useCdn: false,
+  token: process.env.SANITY_TOKEN,
+  apiVersion: '2024-01-01',
+})
+
+const integrationsIndexPage = {
+  _id: 'categoryIndexPage-integrations-en',
+  _type: 'categoryIndexPage',
+  language: 'en',
+  title: 'CRM Integrations',
+  slug: {
+    _type: 'slug',
+    current: 'integrations',
+  },
+  category: 'crm-integration',
+  seo: {
+    metaTitle: 'WhatsApp CRM Integrations | Sync Conversations to Your CRM | Eazybe',
+    metaDescription:
+      'Connect WhatsApp to HubSpot, Salesforce, Zoho, and more. Sync every conversation automatically. No API migration required. Works with WhatsApp Business App.',
+  },
+  hero: {
+    badge: 'CRM Integrations',
+    headline: 'Connect WhatsApp to',
+    headlineHighlight: 'your CRM',
+    description:
+      'Your CRM is blind to WhatsApp conversations. Eazybe connects the dots—syncing every message to HubSpot, Salesforce, Zoho, and more. No API migration. Works with personal WhatsApp.',
+    primaryCta: {
+      label: 'Start Free Trial',
+      url: '/signup',
+    },
+    secondaryCta: {
+      label: 'Compare Integrations',
+      url: '#comparison',
+    },
+  },
+  intro: {
+    headline: 'Why integrate WhatsApp with your CRM?',
+    description:
+      "80% of customer conversations happen on WhatsApp—but your CRM shows nothing. Reps manually log summaries (when they remember). Managers make decisions on incomplete data. Deals slip through cracks.\n\nEazybe captures every WhatsApp message and syncs it to your CRM automatically. Full conversation history. Attachments. Voice notes. All searchable, all linked to the right contacts and deals.",
+  },
+  featuredItems: [
+    {
+      name: 'HubSpot',
+      slug: 'hubspot-whatsapp-integration',
+      description:
+        'Sync WhatsApp to Contacts, Deals & Tickets. Trigger workflows from chat events. Full timeline visibility.',
+      icon: 'hubspot',
+      color: '#FF7A59',
+      isFeatured: true,
+      tags: ['Popular', 'Workflows'],
+    },
+    {
+      name: 'Salesforce',
+      slug: 'salesforce-whatsapp-integration',
+      description:
+        'Log WhatsApp as Activities on Leads, Contacts & Opportunities. No managed packages. Shield-compatible.',
+      icon: 'salesforce',
+      color: '#00A1E0',
+      isFeatured: true,
+      tags: ['Enterprise', 'Shield'],
+    },
+    {
+      name: 'Zoho CRM',
+      slug: 'zoho-whatsapp-integration',
+      description:
+        'Sync conversations to Leads & Contacts. Works with all Zoho data centers (US, EU, IN, AU, JP).',
+      icon: 'zoho',
+      color: '#E42527',
+      isFeatured: true,
+      tags: ['All Regions'],
+    },
+    {
+      name: 'Bitrix24',
+      slug: 'bitrix24-whatsapp-integration',
+      description: 'Connect WhatsApp to Bitrix24 CRM. Sync contacts and conversations automatically.',
+      icon: 'bitrix24',
+      color: '#2FC6F6',
+      isFeatured: false,
+      tags: [],
+    },
+    {
+      name: 'LeadSquared',
+      slug: 'leadsquared-whatsapp-integration',
+      description: 'Capture WhatsApp leads automatically. Sync conversations to LeadSquared activities.',
+      icon: 'leadsquared',
+      color: '#0066CC',
+      isFeatured: false,
+      tags: [],
+    },
+    {
+      name: 'Freshdesk',
+      slug: 'freshdesk-whatsapp-integration',
+      description: 'Create tickets from WhatsApp conversations. Sync customer context to Freshdesk.',
+      icon: 'freshdesk',
+      color: '#25C16F',
+      isFeatured: false,
+      tags: ['Support'],
+    },
+    {
+      name: 'Google Sheets',
+      slug: 'google-sheets-whatsapp-integration',
+      description: 'Export WhatsApp data to Google Sheets. Build custom reports and dashboards.',
+      icon: 'google-sheets',
+      color: '#0F9D58',
+      isFeatured: false,
+      tags: ['Reporting'],
+    },
+    {
+      name: 'Webhooks',
+      slug: 'webhooks-whatsapp-integration',
+      description: 'Send WhatsApp events to any system via webhooks. Build custom integrations.',
+      icon: 'webhooks',
+      color: '#6B7280',
+      isFeatured: false,
+      tags: ['Developer'],
+    },
+  ],
+  comparisonTable: {
+    headline: 'Compare CRM Integrations',
+    description: 'All integrations include real-time sync, full conversation history, and manager visibility.',
+    columns: ['Feature', 'HubSpot', 'Salesforce', 'Zoho CRM'],
+    rows: [
+      {
+        feature: 'Real-time message sync',
+        values: [{type: 'check'}, {type: 'check'}, {type: 'check'}],
+      },
+      {
+        feature: 'Contact/Lead auto-linking',
+        values: [{type: 'check'}, {type: 'check'}, {type: 'check'}],
+      },
+      {
+        feature: 'Deal/Opportunity sync',
+        values: [{type: 'check'}, {type: 'check'}, {type: 'check'}],
+      },
+      {
+        feature: 'Mini CRM in WhatsApp',
+        values: [{type: 'check'}, {type: 'check'}, {type: 'check'}],
+      },
+      {
+        feature: 'Workflow triggers',
+        values: [{type: 'check'}, {type: 'partial'}, {type: 'partial'}],
+      },
+      {
+        feature: 'Custom field mapping',
+        values: [{type: 'check'}, {type: 'check'}, {type: 'check'}],
+      },
+      {
+        feature: 'Team inbox visibility',
+        values: [{type: 'check'}, {type: 'check'}, {type: 'check'}],
+      },
+      {
+        feature: 'Enterprise security',
+        values: [
+          {type: 'text', text: 'SOC 2'},
+          {type: 'text', text: 'Shield'},
+          {type: 'text', text: 'GDPR'},
+        ],
+      },
+    ],
+  },
+  benefits: {
+    badge: 'Why Eazybe?',
+    headline: 'Every CRM integration includes',
+    items: [
+      {
+        icon: 'sync',
+        title: 'Real-Time Sync',
+        description:
+          'Messages appear in your CRM within minutes. No manual export. No waiting for batch jobs.',
+      },
+      {
+        icon: 'inbox',
+        title: 'Full Conversation History',
+        description:
+          'Every message, attachment, and voice note synced automatically. Search conversations in your CRM.',
+      },
+      {
+        icon: 'workflow',
+        title: 'Works With Your WhatsApp',
+        description:
+          'Personal WhatsApp, Business App, or API—we work with all of them. No expensive migration.',
+      },
+      {
+        icon: 'team',
+        title: 'Team Visibility',
+        description:
+          'Managers see every conversation across the team. Track response times. Coach effectively.',
+      },
+      {
+        icon: 'security',
+        title: 'Enterprise Security',
+        description: 'SOC 2 Type II certified. GDPR compliant. Meta Business Partner. Bank-grade encryption.',
+      },
+      {
+        icon: 'speed',
+        title: 'Live in 30 Minutes',
+        description:
+          'Chrome extension + OAuth. No API setup. No developer needed. Your team starts today.',
+      },
+    ],
+  },
+  howItWorks: {
+    badge: 'How It Works',
+    headline: 'Connect in 3 steps',
+    description: 'No developers. No IT tickets. No waiting.',
+    steps: [
+      {
+        number: '01',
+        title: 'Install Chrome Extension',
+        description: 'Add Eazybe to Chrome. Takes 60 seconds.',
+      },
+      {
+        number: '02',
+        title: 'Connect Your CRM',
+        description: 'OAuth login to HubSpot, Salesforce, or Zoho. No API keys needed.',
+      },
+      {
+        number: '03',
+        title: 'Open WhatsApp Web',
+        description: 'The CRM sidebar appears automatically. Conversations start syncing.',
+      },
+    ],
+  },
+  faq: {
+    badge: 'FAQ',
+    headline: 'Common questions about CRM integrations',
+    items: [
+      {
+        question: 'Do I need WhatsApp Business API?',
+        answer:
+          "No. Eazybe works with personal WhatsApp, WhatsApp Business App, AND WhatsApp Business API. Unlike competitors that require expensive API migrations, we work with whatever WhatsApp you already use.",
+      },
+      {
+        question: 'Which CRMs do you support?',
+        answer:
+          'We have native integrations for HubSpot, Salesforce, Zoho CRM, Bitrix24, LeadSquared, and Freshdesk. We also support Google Sheets and custom Webhooks for any other system.',
+      },
+      {
+        question: 'How quickly can we be live?',
+        answer:
+          'Most teams are syncing within 30 minutes. Install the Chrome extension, connect your CRM with OAuth, and open WhatsApp Web. No developer resources needed.',
+      },
+      {
+        question: 'What happens to conversations when reps leave?',
+        answer:
+          'All conversations stay in your CRM forever. Customer history belongs to your company, not personal phones. The next rep picks up with full context.',
+      },
+      {
+        question: 'Is it secure?',
+        answer:
+          'Yes. SOC 2 Type II certified, GDPR compliant, official Meta Business Partner. Messages encrypted in transit and at rest. Used by healthcare, finance, and government customers.',
+      },
+      {
+        question: 'Can I sync existing chat history?',
+        answer:
+          'Yes. Unlike competitors that start fresh, Eazybe can sync your existing WhatsApp conversation history to your CRM.',
+      },
+    ],
+  },
+  cta: {
+    headline: 'Stop flying blind on',
+    headlineHighlight: 'WhatsApp deals',
+    description:
+      'Your competitors see every customer conversation. You should too. Join 30,000+ companies who connected the dots.',
+    primaryCta: {
+      label: 'Start Free Trial',
+      url: '/signup',
+    },
+    secondaryCta: {
+      label: 'Book a Demo',
+      url: '/demo',
+    },
+    footnote: '14-day free trial • No credit card required • Live in 30 minutes',
+  },
+}
+
+async function seed() {
+  console.log('Creating CRM Integrations index page...')
+
+  try {
+    const result = await client.createOrReplace(integrationsIndexPage)
+    console.log('Created document:', result._id)
+  } catch (error) {
+    console.error('Error creating document:', error)
+  }
+}
+
+seed()
