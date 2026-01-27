@@ -25,6 +25,15 @@ import statsSection from './sections/statsSection'
 import securitySection from './sections/securitySection'
 import ctaSection from './sections/ctaSection'
 
+// Product page section types
+import productHeroSection from './sections/productHeroSection'
+import benefitsSection from './sections/benefitsSection'
+import productFeaturesSection from './sections/productFeaturesSection'
+import howItWorksSection from './sections/howItWorksSection'
+import useCasesSection from './sections/useCasesSection'
+import faqSection from './sections/faqSection'
+import productTestimonialSection from './sections/productTestimonialSection'
+
 // Object types
 import button from './objects/button'
 import seo from './objects/seo'
@@ -69,6 +78,15 @@ export const schemaTypes = [
   statsSection,
   securitySection,
   ctaSection,
+
+  // Product page sections
+  productHeroSection,
+  benefitsSection,
+  productFeaturesSection,
+  howItWorksSection,
+  useCasesSection,
+  faqSection,
+  productTestimonialSection,
 
   // Objects
   button,

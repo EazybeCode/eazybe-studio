@@ -73,6 +73,7 @@ export default defineType({
       type: 'string',
       group: 'settings',
       description: 'e.g., HubSpot, Salesforce, Zoho',
+      hidden: ({document}) => document?.category !== 'crm-integration',
     }),
     defineField({
       name: 'crmSlug',
@@ -80,6 +81,7 @@ export default defineType({
       type: 'string',
       group: 'settings',
       description: 'e.g., hubspot, salesforce, zoho (used for logo mapping)',
+      hidden: ({document}) => document?.category !== 'crm-integration',
     }),
     defineField({
       name: 'crmColor',
@@ -87,13 +89,37 @@ export default defineType({
       type: 'string',
       group: 'settings',
       description: 'Hex color code, e.g., #FF7A59 for HubSpot',
+      hidden: ({document}) => document?.category !== 'crm-integration',
     }),
-    // Hero Section
+    // Modular Sections Array - The main content builder
+    defineField({
+      name: 'sections',
+      title: 'Page Sections',
+      type: 'array',
+      group: 'content',
+      description: 'Add and arrange page sections. Each section can be customized with its own content.',
+      of: [
+        {type: 'productHeroSection'},
+        {type: 'benefitsSection'},
+        {type: 'productFeaturesSection'},
+        {type: 'howItWorksSection'},
+        {type: 'useCasesSection'},
+        {type: 'productTestimonialSection'},
+        {type: 'faqSection'},
+        {type: 'securitySection'},
+        {type: 'ctaSection'},
+      ],
+    }),
+    // ============ LEGACY FIELDS (kept for backward compatibility) ============
+    // These will be used if 'sections' array is empty
+    // Hero Section (Legacy)
     defineField({
       name: 'hero',
-      title: 'Hero Section',
+      title: 'Hero Section (Legacy)',
       type: 'object',
       group: 'content',
+      description: 'Legacy field - use Sections array instead',
+      hidden: ({document}) => (document?.sections as any[])?.length > 0,
       fields: [
         defineField({name: 'badge', title: 'Badge Text', type: 'string'}),
         defineField({name: 'headline', title: 'Headline', type: 'string'}),
@@ -134,12 +160,13 @@ export default defineType({
         defineField({name: 'heroImage', title: 'Hero Image', type: 'image', options: {hotspot: true}}),
       ],
     }),
-    // Benefits Section
+    // Benefits Section (Legacy)
     defineField({
       name: 'benefits',
-      title: 'Benefits Section',
+      title: 'Benefits Section (Legacy)',
       type: 'object',
       group: 'content',
+      hidden: ({document}) => (document?.sections as any[])?.length > 0,
       fields: [
         defineField({name: 'badge', title: 'Badge', type: 'string'}),
         defineField({name: 'headline', title: 'Headline', type: 'string'}),
@@ -157,14 +184,12 @@ export default defineType({
                   type: 'string',
                   options: {
                     list: [
-                      // General
                       {title: 'Sync', value: 'sync'},
                       {title: 'Workflow', value: 'workflow'},
                       {title: 'Inbox', value: 'inbox'},
                       {title: 'Team', value: 'team'},
                       {title: 'Security', value: 'security'},
                       {title: 'Support', value: 'support'},
-                      // Features
                       {title: 'Cloud', value: 'cloud'},
                       {title: 'Database', value: 'database'},
                       {title: 'Shield', value: 'shield'},
@@ -205,12 +230,13 @@ export default defineType({
         }),
       ],
     }),
-    // Features Section
+    // Features Section (Legacy)
     defineField({
       name: 'features',
-      title: 'Features Section',
+      title: 'Features Section (Legacy)',
       type: 'array',
       group: 'content',
+      hidden: ({document}) => (document?.sections as any[])?.length > 0,
       of: [
         {
           type: 'object',
@@ -258,12 +284,13 @@ export default defineType({
         },
       ],
     }),
-    // How It Works Section
+    // How It Works Section (Legacy)
     defineField({
       name: 'howItWorks',
-      title: 'How It Works Section',
+      title: 'How It Works Section (Legacy)',
       type: 'object',
       group: 'content',
+      hidden: ({document}) => (document?.sections as any[])?.length > 0,
       fields: [
         defineField({name: 'badge', title: 'Badge', type: 'string'}),
         defineField({name: 'headline', title: 'Headline', type: 'string'}),
@@ -291,12 +318,13 @@ export default defineType({
         }),
       ],
     }),
-    // Use Cases Section
+    // Use Cases Section (Legacy)
     defineField({
       name: 'useCases',
-      title: 'Use Cases Section',
+      title: 'Use Cases Section (Legacy)',
       type: 'object',
       group: 'content',
+      hidden: ({document}) => (document?.sections as any[])?.length > 0,
       fields: [
         defineField({name: 'badge', title: 'Badge', type: 'string'}),
         defineField({name: 'headline', title: 'Headline', type: 'string'}),
@@ -337,12 +365,13 @@ export default defineType({
         }),
       ],
     }),
-    // Testimonial Section
+    // Testimonial Section (Legacy)
     defineField({
       name: 'testimonial',
-      title: 'Testimonial',
+      title: 'Testimonial (Legacy)',
       type: 'object',
       group: 'content',
+      hidden: ({document}) => (document?.sections as any[])?.length > 0,
       fields: [
         defineField({name: 'quote', title: 'Quote', type: 'text', rows: 3}),
         defineField({name: 'author', title: 'Author Name', type: 'string'}),
@@ -351,12 +380,13 @@ export default defineType({
         defineField({name: 'avatar', title: 'Avatar', type: 'image', options: {hotspot: true}}),
       ],
     }),
-    // FAQ Section
+    // FAQ Section (Legacy)
     defineField({
       name: 'faq',
-      title: 'FAQ Section',
+      title: 'FAQ Section (Legacy)',
       type: 'object',
       group: 'content',
+      hidden: ({document}) => (document?.sections as any[])?.length > 0,
       fields: [
         defineField({name: 'badge', title: 'Badge', type: 'string'}),
         defineField({name: 'headline', title: 'Headline', type: 'string'}),
@@ -379,12 +409,13 @@ export default defineType({
         }),
       ],
     }),
-    // CTA Section
+    // CTA Section (Legacy)
     defineField({
       name: 'cta',
-      title: 'CTA Section',
+      title: 'CTA Section (Legacy)',
       type: 'object',
       group: 'content',
+      hidden: ({document}) => (document?.sections as any[])?.length > 0,
       fields: [
         defineField({name: 'headline', title: 'Headline', type: 'string'}),
         defineField({name: 'headlineHighlight', title: 'Headline Highlight', type: 'string'}),
