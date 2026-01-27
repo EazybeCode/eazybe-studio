@@ -6,7 +6,6 @@ import author from './documents/author'
 import footer from './documents/footer'
 import pricingPage from './documents/pricingPage'
 import productPage from './documents/productPage'
-import integrationPage from './documents/integrationPage'
 import categoryIndexPage from './documents/categoryIndexPage'
 import legalPage from './documents/legalPage'
 import aboutPage from './documents/aboutPage'
@@ -60,7 +59,6 @@ export const schemaTypes = [
   footer,
   pricingPage,
   productPage,
-  integrationPage,
   categoryIndexPage,
   legalPage,
   aboutPage,

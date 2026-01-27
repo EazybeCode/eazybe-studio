@@ -10,7 +10,6 @@ const i18nDocumentTypes = [
   'landingPage',
   'pricingPage',
   'productPage',
-  'integrationPage',
   'categoryIndexPage',
   'blogPost',
   'blogIndex',
@@ -291,15 +290,6 @@ export default defineConfig({
                           .filter('_type == "productPage" && slug.current match "broadcast*"')
                       ),
                   ])
-              ),
-
-            // ===== LEGACY INTEGRATIONS (if using old schema) =====
-            S.listItem()
-              .title('📦 Legacy Integrations')
-              .child(
-                S.documentTypeList('integrationPage')
-                  .title('Integration Pages (Legacy)')
-                  .filter('_type == "integrationPage"')
               ),
 
             S.divider(),
