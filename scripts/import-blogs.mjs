@@ -213,9 +213,12 @@ async function fetchBlogContent(url) {
     const featuredImage = $('meta[property="og:image"]').attr('content') ||
                           $('article img').first().attr('src') || ''
 
-    // Extract main content - try multiple selectors
+    // Extract main content - try multiple selectors (Webflow uses w-richtext)
     let contentHtml = ''
     const contentSelectors = [
+      '.blog-content.w-richtext',
+      '.blog-rich-text.w-richtext',
+      '.w-richtext',
       'article .content',
       'article .blog-content',
       '.blog-post-content',
@@ -263,10 +266,11 @@ async function fetchBlogContent(url) {
 function htmlToPortableText($, html) {
   if (!html) return []
 
-  const $content = cheerio.load(html)
+  const $content = cheerio.load(html, null, false) // false = don't add html/body wrapper
   const blocks = []
 
-  $content('body').children().each((i, el) => {
+  // Process all top-level elements
+  const processElement = (el) => {
     const $el = $content(el)
     const tagName = el.tagName?.toLowerCase()
 
@@ -282,51 +286,95 @@ function htmlToPortableText($, html) {
         })
       }
     } else if (tagName === 'h1') {
-      blocks.push({
-        _type: 'block',
-        _key: nanoid(),
-        style: 'h1',
-        markDefs: [],
-        children: [{ _type: 'span', _key: nanoid(), text: $el.text().trim(), marks: [] }]
-      })
+      const text = $el.text().trim()
+      if (text) {
+        blocks.push({
+          _type: 'block',
+          _key: nanoid(),
+          style: 'h1',
+          markDefs: [],
+          children: [{ _type: 'span', _key: nanoid(), text, marks: [] }]
+        })
+      }
     } else if (tagName === 'h2') {
-      blocks.push({
-        _type: 'block',
-        _key: nanoid(),
-        style: 'h2',
-        markDefs: [],
-        children: [{ _type: 'span', _key: nanoid(), text: $el.text().trim(), marks: [] }]
-      })
+      const text = $el.text().trim()
+      if (text) {
+        blocks.push({
+          _type: 'block',
+          _key: nanoid(),
+          style: 'h2',
+          markDefs: [],
+          children: [{ _type: 'span', _key: nanoid(), text, marks: [] }]
+        })
+      }
     } else if (tagName === 'h3') {
-      blocks.push({
-        _type: 'block',
-        _key: nanoid(),
-        style: 'h3',
-        markDefs: [],
-        children: [{ _type: 'span', _key: nanoid(), text: $el.text().trim(), marks: [] }]
-      })
+      const text = $el.text().trim()
+      if (text) {
+        blocks.push({
+          _type: 'block',
+          _key: nanoid(),
+          style: 'h3',
+          markDefs: [],
+          children: [{ _type: 'span', _key: nanoid(), text, marks: [] }]
+        })
+      }
+    } else if (tagName === 'h4') {
+      const text = $el.text().trim()
+      if (text) {
+        blocks.push({
+          _type: 'block',
+          _key: nanoid(),
+          style: 'h4',
+          markDefs: [],
+          children: [{ _type: 'span', _key: nanoid(), text, marks: [] }]
+        })
+      }
     } else if (tagName === 'ul' || tagName === 'ol') {
       $el.find('li').each((j, li) => {
+        const text = $content(li).text().trim()
+        if (text) {
+          blocks.push({
+            _type: 'block',
+            _key: nanoid(),
+            style: 'normal',
+            listItem: tagName === 'ul' ? 'bullet' : 'number',
+            level: 1,
+            markDefs: [],
+            children: [{ _type: 'span', _key: nanoid(), text, marks: [] }]
+          })
+        }
+      })
+    } else if (tagName === 'blockquote') {
+      const text = $el.text().trim()
+      if (text) {
+        blocks.push({
+          _type: 'block',
+          _key: nanoid(),
+          style: 'blockquote',
+          markDefs: [],
+          children: [{ _type: 'span', _key: nanoid(), text, marks: [] }]
+        })
+      }
+    } else if (tagName === 'div') {
+      // Recursively process div children
+      $el.children().each((i, child) => processElement(child))
+    } else if (tagName === 'figure') {
+      // Handle figure elements (often contain images)
+      const text = $el.find('figcaption').text().trim()
+      if (text) {
         blocks.push({
           _type: 'block',
           _key: nanoid(),
           style: 'normal',
-          listItem: tagName === 'ul' ? 'bullet' : 'number',
-          level: 1,
           markDefs: [],
-          children: [{ _type: 'span', _key: nanoid(), text: $content(li).text().trim(), marks: [] }]
+          children: [{ _type: 'span', _key: nanoid(), text, marks: [] }]
         })
-      })
-    } else if (tagName === 'blockquote') {
-      blocks.push({
-        _type: 'block',
-        _key: nanoid(),
-        style: 'blockquote',
-        markDefs: [],
-        children: [{ _type: 'span', _key: nanoid(), text: $el.text().trim(), marks: [] }]
-      })
+      }
     }
-  })
+  }
+
+  // Get root elements and process them
+  $content.root().children().each((i, el) => processElement(el))
 
   return blocks
 }

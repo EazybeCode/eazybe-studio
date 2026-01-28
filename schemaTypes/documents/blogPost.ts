@@ -148,6 +148,13 @@ export default defineType({
       type: 'datetime',
     }),
     defineField({
+      name: 'readTime',
+      title: 'Read Time (minutes)',
+      type: 'number',
+      description: 'Estimated reading time in minutes',
+      validation: (Rule) => Rule.min(1).max(30),
+    }),
+    defineField({
       name: 'seo',
       title: 'SEO Settings',
       type: 'seo',
