@@ -317,33 +317,64 @@ export default defineConfig({
                           .defaultOrdering([{field: 'publishedAt', direction: 'desc'}])
                       ),
                     S.divider(),
+                    // Hub Categories (Pillar Content)
+                    S.listItem()
+                      .title('By Category: CRM Integrations')
+                      .child(
+                        S.documentTypeList('blogPost')
+                          .title('CRM Integrations')
+                          .filter('_type == "blogPost" && category == "CRM Integrations"')
+                      ),
+                    S.listItem()
+                      .title('By Category: Features')
+                      .child(
+                        S.documentTypeList('blogPost')
+                          .title('Features')
+                          .filter('_type == "blogPost" && category == "Features"')
+                      ),
+                    S.listItem()
+                      .title('By Category: WhatsApp for Sales')
+                      .child(
+                        S.documentTypeList('blogPost')
+                          .title('WhatsApp for Sales')
+                          .filter('_type == "blogPost" && category == "WhatsApp for Sales"')
+                      ),
+                    S.listItem()
+                      .title('By Category: WhatsApp for Support')
+                      .child(
+                        S.documentTypeList('blogPost')
+                          .title('WhatsApp for Support')
+                          .filter('_type == "blogPost" && category == "WhatsApp for Support"')
+                      ),
+                    S.divider(),
+                    // Supporting Content
+                    S.listItem()
+                      .title('By Category: How-To Guides')
+                      .child(
+                        S.documentTypeList('blogPost')
+                          .title('How-To Guides')
+                          .filter('_type == "blogPost" && category == "How-To Guides"')
+                      ),
                     S.listItem()
                       .title('By Category: Product Updates')
                       .child(
                         S.documentTypeList('blogPost')
                           .title('Product Updates')
-                          .filter('_type == "blogPost" && "product-updates" in categories')
-                      ),
-                    S.listItem()
-                      .title('By Category: WhatsApp Tips')
-                      .child(
-                        S.documentTypeList('blogPost')
-                          .title('WhatsApp Tips')
-                          .filter('_type == "blogPost" && "whatsapp-tips" in categories')
-                      ),
-                    S.listItem()
-                      .title('By Category: CRM Integration')
-                      .child(
-                        S.documentTypeList('blogPost')
-                          .title('CRM Integration')
-                          .filter('_type == "blogPost" && "crm-integration" in categories')
+                          .filter('_type == "blogPost" && category == "Product Updates"')
                       ),
                     S.listItem()
                       .title('By Category: Case Studies')
                       .child(
                         S.documentTypeList('blogPost')
                           .title('Case Studies')
-                          .filter('_type == "blogPost" && "case-studies" in categories')
+                          .filter('_type == "blogPost" && category == "Case Studies"')
+                      ),
+                    S.listItem()
+                      .title('By Category: Industry Insights')
+                      .child(
+                        S.documentTypeList('blogPost')
+                          .title('Industry Insights')
+                          .filter('_type == "blogPost" && category == "Industry Insights"')
                       ),
                     S.divider(),
                     S.listItem()
