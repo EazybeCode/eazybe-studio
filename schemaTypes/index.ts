@@ -4,6 +4,7 @@ import blogPost from './documents/blogPost'
 import blogIndex from './documents/blogIndex'
 import author from './documents/author'
 import footer from './documents/footer'
+import navigation from './documents/navigation'
 import pricingPage from './documents/pricingPage'
 import productPage from './documents/productPage'
 import categoryIndexPage from './documents/categoryIndexPage'
@@ -49,6 +50,8 @@ import footerColumn from './objects/footerColumn'
 import footerLink from './objects/footerLink'
 import pricingPlan from './objects/pricingPlan'
 import faq from './objects/faq'
+import navItem from './objects/navItem'
+import navColumn from './objects/navColumn'
 
 export const schemaTypes = [
   // Documents
@@ -57,6 +60,7 @@ export const schemaTypes = [
   blogIndex,
   author,
   footer,
+  navigation,
   pricingPage,
   productPage,
   categoryIndexPage,
@@ -102,4 +106,6 @@ export const schemaTypes = [
   footerLink,
   pricingPlan,
   faq,
+  navItem,
+  navColumn,
 ]

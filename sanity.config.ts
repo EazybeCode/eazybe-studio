@@ -411,6 +411,14 @@ export default defineConfig({
                   .title('Site Settings')
                   .items([
                     S.listItem()
+                      .title('Navigation')
+                      .child(
+                        S.document()
+                          .schemaType('navigation')
+                          .documentId('main-navigation')
+                          .title('Main Navigation')
+                      ),
+                    S.listItem()
                       .title('Footer')
                       .child(
                         S.document()
