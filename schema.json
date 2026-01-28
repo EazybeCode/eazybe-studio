@@ -31,14 +31,14 @@
                   "value": {
                     "type": "string"
                   },
-                  "optional": true
+                  "optional": false
                 },
                 "href": {
                   "type": "objectAttribute",
                   "value": {
                     "type": "string"
                   },
-                  "optional": true
+                  "optional": false
                 },
                 "description": {
                   "type": "objectAttribute",
@@ -105,7 +105,7 @@
           "value": {
             "type": "string"
           },
-          "optional": true
+          "optional": false
         },
         "href": {
           "type": "objectAttribute",
@@ -171,14 +171,14 @@
           "value": {
             "type": "string"
           },
-          "optional": true
+          "optional": false
         },
         "answer": {
           "type": "objectAttribute",
           "value": {
             "type": "string"
           },
-          "optional": true
+          "optional": false
         }
       }
     }
@@ -201,7 +201,7 @@
           "value": {
             "type": "string"
           },
-          "optional": true
+          "optional": false
         },
         "description": {
           "type": "objectAttribute",
@@ -2524,7 +2524,7 @@
           "value": {
             "type": "string"
           },
-          "optional": true
+          "optional": false
         },
         "headlineHighlight": {
           "type": "objectAttribute",
@@ -2884,7 +2884,7 @@
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "slug": {
         "type": "objectAttribute",
@@ -2892,7 +2892,7 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": true
+        "optional": false
       },
       "items": {
         "type": "objectAttribute",
@@ -3505,7 +3505,7 @@
             }
           ]
         },
-        "optional": true
+        "optional": false
       },
       "title": {
         "type": "objectAttribute",
@@ -3753,7 +3753,7 @@
             }
           ]
         },
-        "optional": true
+        "optional": false
       },
       "title": {
         "type": "objectAttribute",
@@ -4113,14 +4113,14 @@
             }
           ]
         },
-        "optional": true
+        "optional": false
       },
       "title": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "slug": {
         "type": "objectAttribute",
@@ -4128,7 +4128,7 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": true
+        "optional": false
       },
       "seo": {
         "type": "objectAttribute",
@@ -4401,7 +4401,7 @@
             }
           ]
         },
-        "optional": true
+        "optional": false
       },
       "title": {
         "type": "objectAttribute",
@@ -4918,14 +4918,14 @@
             }
           ]
         },
-        "optional": true
+        "optional": false
       },
       "title": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "slug": {
         "type": "objectAttribute",
@@ -4933,7 +4933,7 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": true
+        "optional": false
       },
       "author": {
         "type": "objectAttribute",
@@ -5340,7 +5340,7 @@
             }
           ]
         },
-        "optional": true
+        "optional": false
       },
       "parentHub": {
         "type": "objectAttribute",
@@ -5379,39 +5379,43 @@
           "of": [
             {
               "type": "string",
-              "value": "hubspot"
+              "value": "hubspot-whatsapp-integration"
             },
             {
               "type": "string",
-              "value": "salesforce"
+              "value": "salesforce-whatsapp-integration"
             },
             {
               "type": "string",
-              "value": "zoho"
+              "value": "zoho-whatsapp-integration"
             },
             {
               "type": "string",
-              "value": "pipedrive"
+              "value": "leadsquared-whatsapp-integration"
             },
             {
               "type": "string",
-              "value": "monday"
+              "value": "freshdesk-whatsapp-integration"
             },
             {
               "type": "string",
-              "value": "leadsquared"
+              "value": "bitrix24-whatsapp-integration"
             },
             {
               "type": "string",
-              "value": "bitrix24"
+              "value": "webhooks-whatsapp-integration"
             },
             {
               "type": "string",
-              "value": "freshdesk"
+              "value": "pipedrive-whatsapp-integration"
             },
             {
               "type": "string",
-              "value": "google-sheets"
+              "value": "monday-whatsapp-integration"
+            },
+            {
+              "type": "string",
+              "value": "google-sheets-whatsapp-integration"
             }
           ]
         },
@@ -5424,7 +5428,7 @@
           "of": [
             {
               "type": "string",
-              "value": "broadcast"
+              "value": "quick-reply"
             },
             {
               "type": "string",
@@ -5432,19 +5436,27 @@
             },
             {
               "type": "string",
+              "value": "whatsapp-api"
+            },
+            {
+              "type": "string",
+              "value": "whatsapp-templates"
+            },
+            {
+              "type": "string",
+              "value": "whatsapp-broadcast"
+            },
+            {
+              "type": "string",
+              "value": "whatsapp-coexistence"
+            },
+            {
+              "type": "string",
               "value": "team-inbox"
             },
             {
               "type": "string",
-              "value": "templates"
-            },
-            {
-              "type": "string",
               "value": "labels"
-            },
-            {
-              "type": "string",
-              "value": "quick-replies"
             },
             {
               "type": "string",
@@ -5515,7 +5527,7 @@
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "slug": {
         "type": "objectAttribute",
@@ -5668,14 +5680,14 @@
             }
           ]
         },
-        "optional": true
+        "optional": false
       },
       "title": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "slug": {
         "type": "objectAttribute",
@@ -5683,7 +5695,7 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": true
+        "optional": false
       },
       "category": {
         "type": "objectAttribute",
@@ -5704,7 +5716,7 @@
             }
           ]
         },
-        "optional": true
+        "optional": false
       },
       "seo": {
         "type": "objectAttribute",
@@ -6498,14 +6510,14 @@
             }
           ]
         },
-        "optional": true
+        "optional": false
       },
       "title": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "slug": {
         "type": "objectAttribute",
@@ -6513,7 +6525,7 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": true
+        "optional": false
       },
       "seo": {
         "type": "objectAttribute",
@@ -7692,7 +7704,7 @@
             }
           ]
         },
-        "optional": true
+        "optional": false
       },
       "seo": {
         "type": "objectAttribute",
@@ -8127,14 +8139,14 @@
             }
           ]
         },
-        "optional": true
+        "optional": false
       },
       "title": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "seo": {
         "type": "objectAttribute",
@@ -9080,7 +9092,7 @@
           "value": {
             "type": "string"
           },
-          "optional": true
+          "optional": false
         },
         "source": {
           "type": "objectAttribute",
